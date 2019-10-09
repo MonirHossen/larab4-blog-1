@@ -14,3 +14,10 @@
 <script src="{{ asset('js/admin/dashboard.js') }}"></script>
 <script src="{{ asset('js/admin/file-upload.js') }}"></script>
 <!-- End custom js for this page-->
+
+<!-- cke-editor-javascript -->
+<script src="{{asset('admin/js/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('admin/js/ckeditor/samples/js/sample.js')}}"></script>
+<script>
+    initSample();
+</script>

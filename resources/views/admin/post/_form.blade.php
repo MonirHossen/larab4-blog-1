@@ -31,7 +31,7 @@
 </div>
 <div class="form-group">
     <label for="content">Content</label>
-    <textarea name="content" class="form-control" id="content" rows="6">{{ old('content',isset($post->content)?$post->content:null) }}</textarea>
+    <textarea name="content" class="form-control" id="editor" rows="6">{{ old('content',isset($post->content)?$post->content:null) }}</textarea>
     @error('content')
     <div class="text-danger">{{ $message }}</div>
     @enderror
