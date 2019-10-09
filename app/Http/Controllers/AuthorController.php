@@ -36,6 +36,11 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique',
+            'about' => 'required',
+        ]);
         Author::create($request->except('_token'));
         session()->flash('success','Author created successfully');
         return redirect()->route('author.index');
@@ -74,6 +79,11 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:authors',
+            'about' => 'required',
+        ]);
         $author->update($request->except('_token'));
         session()->flash('success','Author updated successfully');
         return redirect()->route('author.index');

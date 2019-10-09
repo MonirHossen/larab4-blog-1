@@ -9,18 +9,7 @@
                     <form class="forms-sample" action="{{ route('user.update',$user->id) }}" method="post">
                         @csrf
                         @method('put')
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input name="name" type="text" class="form-control" value="{{ $user->name }}" id="name" placeholder="User name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input name="email" type="email" class="form-control" id="email" value="{{ $user->email }}" placeholder="User email">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input name="password" type="password" class="form-control" id="password" placeholder="User password">
-                        </div>
+                        @include('admin.user._form')
                         <button type="submit" class="btn btn-primary mr-2">Update</button>
                         <button class="btn btn-light">Cancel</button>
                     </form>

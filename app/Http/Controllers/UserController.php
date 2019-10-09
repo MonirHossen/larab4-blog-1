@@ -36,6 +36,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique',
+            'password' => 'required',
+        ]);
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['password'] = bcrypt($request->password);
@@ -76,6 +81,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
+        ]);
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         if($request->password != null)
